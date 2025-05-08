@@ -1,0 +1,56 @@
+"hero": {
+  "title": "Decode Your Destiny with",
+  "subtitle": "Your Astrology Journey",
+  "button": "Get Started"
+},
+"whyAstrology": {
+  "title": "WHY ASTROLOGY?",
+  "description": "At Bhavisyaji, we see astrology as a timeless roadmap to your inner potential and life's turning points. Rooted in centuries-old techniques, it's a predictive science that uses cosmic patterns—primarily the nine 'Navagraha' bodies—to illuminate everything from your personal strengths to upcoming challenges. Even as the world changes, astrology's ability to connect us with universal rhythms continues to inspire deep belief and practical guidance.",
+  "navagrahaTitle": "The Nine Navagraha"
+},
+"services": {
+  "title": "ONLINE ASTROLOGY CONSULTATION & SERVICES",
+  "instantAccess": {
+    "title": "Instant Access",
+    "desc": "Chat or voice sessions with specialized AI 'astrologer' personas"
+  },
+  "flexibleBilling": {
+    "title": "Flexible Billing",
+    "desc": "Start with a 5-message free trial, then pay per message or per minute"
+  },
+  "multilingualSupport": {
+    "title": "Multilingual Support",
+    "desc": "Converse in Hindi, English or any of 10+ Indian languages"
+  }
+},
+"notFound": {
+  "title": "Page Not Found",
+  "description": "The page you are looking for doesn't exist or has been moved.",
+  "button": "Go to Home"
+},
+"footer": {
+  "copyright": "© {{year}} {{appName}} - {{tagline}}. All rights reserved.",
+  "tagline": "Your AI Astrology Companion"
+},
+"quickActions": {
+  "title": "Quick Actions",
+  "bookConsultation": "Book Consultation",
+  "askQuestion": "Ask a Question",
+  "buyCredits": "Buy Credits",
+  "viewReports": "View Reports"
+},
+"consultation": {
+  "title": "AI Astrology Consultation",
+  "chatWithAi": "Chat with AI Astrologer",
+  "startPrompt": "Start your consultation by sending a message",
+  "sendMessage": "Send Message",
+  "endConsultation": "End Consultation"
+},
+"profile": {
+  "title": "User Profile",
+  "back": "Back",
+  "save": "Save",
+  "saving": "Saving...",
+  "next": "Next",
+  "saved": "Profile saved successfully!"
+} 

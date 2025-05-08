@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow users to read and write their own profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow users to read and write their own credits
+    match /userCredits/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow users to read and write their own credit transactions
+    match /creditTransactions/{transactionId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+    
+    // Allow users to read credit packages
+    match /creditPackages/{packageId} {
+      allow read: if true;
+      allow write: if false; // Only admins can modify packages
+    }
+    
+    // Allow users to read and write their own horoscopes
+    match /horoscopes/{horoscopeId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+    
+    // Allow users to read and write their own chat sessions
+    match /chatSessions/{sessionId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+  }
+} 
