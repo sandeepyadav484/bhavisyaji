@@ -1,0 +1,23 @@
+{
+  "name": "Bhavisyaji",
+  "short_name": "Bhavisyaji",
+  "description": "Free Online Astrology Predictions by Best Astrologer",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#6C47FF",
+  "background_color": "#ffffff"
+}

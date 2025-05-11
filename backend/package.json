@@ -1,0 +1,17 @@
+{
+  "name": "bhavisyaji-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Bhavisyaji",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.98.0",
+    "pdfkit": "^0.17.1"
+  }
+}
