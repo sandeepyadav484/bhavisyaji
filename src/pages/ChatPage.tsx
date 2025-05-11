@@ -89,7 +89,11 @@ export const ChatPage: React.FC = () => {
       setSession((prev) =>
         prev ? { ...prev, messages: [...prev.messages, userMsg] } : prev
       );
-      const creditOk = await deductCredits(userId, MESSAGE_CREDIT_COST);
+      const creditOk = await deductCredits(
+        userId, 
+        MESSAGE_CREDIT_COST, 
+        `Chat message with ${persona?.name || 'astrologer'}`
+      );
       if (creditOk) setCredits((c) => c - MESSAGE_CREDIT_COST);
       else setError('Insufficient credits.');
       // Call OpenAI

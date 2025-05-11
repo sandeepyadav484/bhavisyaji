@@ -41,16 +41,22 @@ const ReportsGallery: React.FC = () => {
 
   const handleDownload = async (report: any) => {
     try {
-      const response = await fetch('http://localhost:3001/api/generate-report', {
+      const response = await fetch('/api/generate-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          reportType: report.title,
-          userId: user?.uid,
-          profile,
+          birthDate: profile?.birthDetails?.birthDate,
+          birthTime: profile?.birthDetails?.birthTime,
+          birthPlace: profile?.birthDetails?.birthPlace,
         }),
       });
-      if (!response.ok) throw new Error('Failed to generate report');
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to generate report');
+      }
+      
+      // Get the PDF blob directly from the response
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
