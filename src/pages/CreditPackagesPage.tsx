@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getCreditPackages } from '../services/credits';
 import CreditPackageCard from '../components/payment/CreditPackageCard';
 import PaymentModal from '../components/payment/PaymentModal';
-import { loadRazorpayScript, openRazorpayCheckout, createPaymentOrder } from '../services/payment/razorpay';
+import { initiatePayment } from '../services/payment/razorpay';
 import { CreditPackage } from '../models/credits';
 
 const CreditPackagesPage: React.FC = () => {
@@ -25,23 +25,8 @@ const CreditPackagesPage: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      await loadRazorpayScript();
-      // TODO: Replace with your backend order creation
-      const order = await createPaymentOrder(pkg.price * 100); // amount in paise
-      openRazorpayCheckout({
-        key: 'RAZORPAY_KEY_ID', // TODO: Replace with your Razorpay key
-        amount: order.amount,
-        currency: order.currency,
-        name: 'Bhavisyaji',
-        description: `Buy ${pkg.credits} credits`,
-        order_id: order.id,
-        handler: (response: any) => {
-          // TODO: Verify payment and add credits
-          setModalOpen(false);
-        },
-        prefill: {},
-        theme: { color: '#7c3aed' },
-      });
+      await initiatePayment(pkg);
+      setModalOpen(false);
     } catch (err: any) {
       setError(err.message || 'Payment failed.');
     } finally {
