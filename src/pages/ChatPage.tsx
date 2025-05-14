@@ -293,6 +293,9 @@ Remember to adjust your language complexity based on the user's communication st
           pkg={selectedPackage}
           onClose={() => { setSelectedPackage(null); setShowTopUp(false); }}
           onPay={handlePay}
+          loading={sending}
+          userId={userId}
+          initialBalance={credits}
         />
       </div>
     </div>

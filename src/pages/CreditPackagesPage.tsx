@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { getCreditPackages } from '../services/credits';
+import { getCreditPackages, getCreditBalance } from '../services/credits';
 import CreditPackageCard from '../components/payment/CreditPackageCard';
 import PaymentModal from '../components/payment/PaymentModal';
 import { initiatePayment } from '../services/payment/razorpay';
 import { CreditPackage } from '../models/credits';
+import { useUser } from '../contexts/UserContext';
 
 const CreditPackagesPage: React.FC = () => {
+  const { user } = useUser();
+  const userId = user?.uid || '';
   const [packages, setPackages] = useState<CreditPackage[]>([]);
   const [selected, setSelected] = useState<CreditPackage | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [balance, setBalance] = useState<number>(0);
 
   useEffect(() => {
     getCreditPackages().then(setPackages).catch(() => setError('Failed to load packages.'));
-  }, []);
+    if (userId) {
+      getCreditBalance(userId).then(setBalance);
+    }
+  }, [userId]);
 
   const handlePurchase = async (pkg: CreditPackage) => {
     setSelected(pkg);
@@ -26,7 +33,7 @@ const CreditPackagesPage: React.FC = () => {
     setError(null);
     try {
       await initiatePayment(pkg);
-      setModalOpen(false);
+      // Don't close modal, let polling handle it
     } catch (err: any) {
       setError(err.message || 'Payment failed.');
     } finally {
@@ -49,6 +56,8 @@ const CreditPackagesPage: React.FC = () => {
         onClose={() => setModalOpen(false)}
         onPay={handlePay}
         loading={loading}
+        userId={userId}
+        initialBalance={balance}
       />
     </div>
   );
