@@ -17,4 +17,5 @@ export interface CreditPackage {
   credits: number;
   discount?: number; // percent
   description?: string;
+  paymentLink?: string; // Razorpay payment link
 } 
