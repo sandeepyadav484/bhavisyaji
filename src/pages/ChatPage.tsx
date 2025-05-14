@@ -4,7 +4,7 @@ import { MessageList } from '../components/chat/MessageList';
 import { MessageInput } from '../components/chat/MessageInput';
 import { TypingIndicator } from '../components/chat/TypingIndicator';
 import { createChatSession, fetchChatSession, saveMessage } from '../services/firestore/chat';
-import { getCreditBalance, deductCredits, getCreditPackages } from '../services/credits';
+import { getCreditBalance, deductCredits } from '../services/credits';
 import { sendMessageToOpenAI } from '../services/openai';
 import { ChatMessage, ChatSession } from '../models/chat';
 import { v4 as uuidv4 } from 'uuid';
@@ -14,6 +14,8 @@ import { CreditPackage } from '../models/credits';
 import { useParams } from 'react-router-dom';
 import { getPersonaById } from '../services/firestore/personas';
 import { useUser } from '../contexts/UserContext';
+import { initiatePayment } from '../services/payment/razorpay';
+import { getCreditPackages } from '../services/firestore/creditPackages';
 
 const MESSAGE_CREDIT_COST = 1;
 
@@ -70,7 +72,7 @@ export const ChatPage: React.FC = () => {
   }, []);
 
   const handleSend = async (content: string) => {
-    if (!session) return;
+    if (!session || sending) return;
     setError(null);
     if (credits < MESSAGE_CREDIT_COST) {
       setShowTopUp(true);
@@ -228,8 +230,12 @@ Remember to adjust your language complexity based on the user's communication st
     setSelectedPackage(null);
   };
   const handlePay = async (pkg: CreditPackage) => {
-    // TODO: Integrate Razorpay payment flow
-    setShowTopUp(false);
+    try {
+      await initiatePayment(pkg);
+      setShowTopUp(false);
+    } catch (error: any) {
+      setError(error.message || 'Payment failed. Please try again.');
+    }
   };
 
   if (loading) {
