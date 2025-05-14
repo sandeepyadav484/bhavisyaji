@@ -1,6 +1,6 @@
 import i18n from '../../i18n';
 
-const BACKEND_API_URL = 'http://localhost:3001/api/chat';
+const BACKEND_API_URL = '/api/chat';
 
 export interface OpenAIMessage {
   role: 'system' | 'user' | 'assistant';
