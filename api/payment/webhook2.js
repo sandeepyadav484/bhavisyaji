@@ -63,15 +63,27 @@ module.exports = async (req, res) => {
       const { notes } = paymentEntity;
       const userId = notes.userId;
       const credits = parseInt(notes.credits);
+      const paymentId = paymentEntity.id;
 
       if (!userId || !credits) {
         console.error('Missing user ID or credits', { userId, credits });
         return res.status(400).json({ error: 'Missing user ID or credits' });
       }
 
+      // Idempotency: check if this paymentId has already been processed
+      const admin = require('firebase-admin');
+      const db = admin.firestore();
+      db.settings && db.settings({ databaseId: 'prod' });
+      const txRef = db.collection('creditTransactions');
+      const existing = await txRef.where('paymentId', '==', paymentId).get();
+      if (!existing.empty) {
+        console.log('Payment already processed:', paymentId);
+        return res.status(200).json({ success: true, message: 'Already processed' });
+      }
+
       // Add credits to user's account
       await addCredits(userId, credits, 'purchase', {
-        paymentId: paymentEntity.id,
+        paymentId,
         orderId: paymentEntity.order_id,
       });
 
