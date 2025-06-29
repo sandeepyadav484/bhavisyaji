@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const getRawBody = require('raw-body');
-const { addCredits } = require('../../bhavisyaji/src/services/firestore/credits');
+const { addCredits } = require('./addCredits');
 
 // Disable body parsing for this API route (Vercel/Next.js style)
 export const config = {
