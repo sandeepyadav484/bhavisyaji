@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Typography, Container, Paper, TextField, Button, Tabs, Tab } from '@mui/material';
+import React, { useState, useEffect, useRef } from 'react';
+import { Box, Typography, Container, Paper, TextField, Button, Tabs, Tab, Alert } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { signUpWithEmail, signInWithEmail, sendPasswordResetEmail } from '../services/auth';
+import { signUpWithPhone, signInWithPhone, verifyPhoneCode, initializeRecaptcha } from '../services/auth';
 import { useUser } from '../contexts/UserContext';
 import { useTranslation } from 'react-i18next';
 
-const EMAIL_REGEX = /^[^\s@]+@[^"]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+[1-9]\d{1,14}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+const OTP_REGEX = /^\d{6}$/;
 
 const AuthPage: React.FC = () => {
-  const [tab, setTab] = useState<'signin' | 'signup' | 'reset'>('signin');
-  const [email, setEmail] = useState('');
+  const [tab, setTab] = useState<'signin' | 'signup' | 'verify'>('signin');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [otpCode, setOtpCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [justSignedUp, setJustSignedUp] = useState(false);
+  const [confirmationResult, setConfirmationResult] = useState<any>(null);
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useUser();
@@ -32,19 +37,35 @@ const AuthPage: React.FC = () => {
     }
   }, [user, justSignedUp, navigate, location]);
 
+  useEffect(() => {
+    // Initialize reCAPTCHA when component mounts
+    if (recaptchaContainerRef.current) {
+      initializeRecaptcha('recaptcha-container');
+    }
+  }, []);
+
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
-    setTab(newValue as 'signin' | 'signup' | 'reset');
+    setTab(newValue as 'signin' | 'signup' | 'verify');
     setError(null);
     setSuccess(null);
-    setEmail('');
+    setPhoneNumber('');
     setPassword('');
     setConfirmPassword('');
+    setOtpCode('');
+    setIsOtpSent(false);
+    setConfirmationResult(null);
   };
 
   const validateSignup = () => {
-    if (!EMAIL_REGEX.test(email)) return 'Enter a valid email.';
+    if (!PHONE_REGEX.test(phoneNumber)) return 'Enter a valid phone number with country code (e.g., +1234567890).';
     if (!PASSWORD_REGEX.test(password)) return 'Password must be at least 8 characters, include uppercase, lowercase, and a digit.';
     if (password !== confirmPassword) return 'Passwords do not match.';
+    return null;
+  };
+
+  const validateSignin = () => {
+    if (!PHONE_REGEX.test(phoneNumber)) return 'Enter a valid phone number with country code (e.g., +1234567890).';
+    if (!password) return 'Password is required.';
     return null;
   };
 
@@ -59,9 +80,11 @@ const AuthPage: React.FC = () => {
     }
     setLoading(true);
     try {
-      await signUpWithEmail(email, password);
-      setJustSignedUp(true);
-      // The redirect will happen in useEffect when user is set
+      const result = await signUpWithPhone(phoneNumber, password);
+      setConfirmationResult(result.confirmationResult);
+      setIsOtpSent(true);
+      setTab('verify');
+      setSuccess('OTP sent to your phone number!');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Signup failed.');
     } finally {
@@ -73,11 +96,18 @@ const AuthPage: React.FC = () => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
+    const validation = validateSignin();
+    if (validation) {
+      setError(validation);
+      return;
+    }
     setLoading(true);
     try {
-      await signInWithEmail(email, password);
-      setJustSignedUp(false);
-      // The redirect will happen in useEffect when user is set
+      const result = await signInWithPhone(phoneNumber, password);
+      setConfirmationResult(result.confirmationResult);
+      setIsOtpSent(true);
+      setTab('verify');
+      setSuccess('OTP sent to your phone number!');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Signin failed.');
     } finally {
@@ -85,20 +115,35 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleReset = async (e: React.FormEvent) => {
+  const handleVerifyOTP = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
-    if (!EMAIL_REGEX.test(email)) {
-      setError('Enter a valid email.');
+    if (!OTP_REGEX.test(otpCode)) {
+      setError('Please enter a valid 6-digit OTP.');
       return;
     }
     setLoading(true);
     try {
-      await sendPasswordResetEmail(email);
-      setSuccess('Password reset email sent! Check your inbox.');
+      const user = await verifyPhoneCode(confirmationResult, otpCode);
+      setJustSignedUp(true);
+      // The redirect will happen in useEffect when user is set
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to send reset email.');
+      setError(err instanceof Error ? err.message : 'OTP verification failed.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const resendOTP = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const result = await signInWithPhone(phoneNumber, password);
+      setConfirmationResult(result.confirmationResult);
+      setSuccess('OTP resent to your phone number!');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to resend OTP.');
     } finally {
       setLoading(false);
     }
@@ -126,6 +171,10 @@ const AuthPage: React.FC = () => {
           <Typography variant="subtitle1" align="center" sx={{ mb: 3, color: '#333' }}>
             {t('appName')} - {t('yourAiAstrologyCompanion', 'Your AI-powered Astrology Companion')}
           </Typography>
+          
+          {/* Hidden reCAPTCHA container */}
+          <div id="recaptcha-container" ref={recaptchaContainerRef}></div>
+          
           <Tabs
             value={tab}
             onChange={handleTabChange}
@@ -135,21 +184,24 @@ const AuthPage: React.FC = () => {
           >
             <Tab label={t('signIn', 'Sign In')} value="signin" />
             <Tab label={t('signUp', 'Sign Up')} value="signup" />
-            <Tab label={t('forgotPassword', 'Forgot Password')} value="reset" />
+            {isOtpSent && <Tab label="Verify OTP" value="verify" />}
           </Tabs>
+          
           {tab === 'signup' && (
             <form onSubmit={handleSignup}>
               <TextField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                label="Phone Number"
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 fullWidth
                 required
                 margin="normal"
-                autoComplete="email"
+                autoComplete="tel"
                 disabled={loading}
                 sx={{ borderRadius: 2 }}
+                placeholder="+1234567890"
+                helperText="Enter phone number with country code"
               />
               <TextField
                 label="Password"
@@ -176,9 +228,9 @@ const AuthPage: React.FC = () => {
                 sx={{ borderRadius: 2 }}
               />
               {error && (
-                <Typography color="error" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
+                <Alert severity="error" sx={{ mt: 2, mb: 2 }}>
                   {error}
-                </Typography>
+                </Alert>
               )}
               <Button
                 type="submit"
@@ -188,23 +240,26 @@ const AuthPage: React.FC = () => {
                 sx={{ mt: 3, borderRadius: 2, fontWeight: 600, fontSize: '1.1rem' }}
                 disabled={loading}
               >
-                {loading ? 'Signing Up...' : 'Sign Up'}
+                {loading ? 'Sending OTP...' : 'Sign Up'}
               </Button>
             </form>
           )}
+          
           {tab === 'signin' && (
             <form onSubmit={handleSignin}>
               <TextField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                label="Phone Number"
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 fullWidth
                 required
                 margin="normal"
-                autoComplete="email"
+                autoComplete="tel"
                 disabled={loading}
                 sx={{ borderRadius: 2 }}
+                placeholder="+1234567890"
+                helperText="Enter phone number with country code"
               />
               <TextField
                 label="Password"
@@ -219,9 +274,9 @@ const AuthPage: React.FC = () => {
                 sx={{ borderRadius: 2 }}
               />
               {error && (
-                <Typography color="error" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
+                <Alert severity="error" sx={{ mt: 2, mb: 2 }}>
                   {error}
-                </Typography>
+                </Alert>
               )}
               <Button
                 type="submit"
@@ -231,42 +286,39 @@ const AuthPage: React.FC = () => {
                 sx={{ mt: 3, borderRadius: 2, fontWeight: 600, fontSize: '1.1rem' }}
                 disabled={loading}
               >
-                {loading ? 'Signing In...' : 'Sign In'}
-              </Button>
-              <Button
-                color="secondary"
-                fullWidth
-                sx={{ mt: 2, borderRadius: 2 }}
-                onClick={() => setTab('reset')}
-                disabled={loading}
-              >
-                {t('forgotPassword', 'Forgot Password')}
+                {loading ? 'Sending OTP...' : 'Sign In'}
               </Button>
             </form>
           )}
-          {tab === 'reset' && (
-            <form onSubmit={handleReset}>
+          
+          {tab === 'verify' && (
+            <form onSubmit={handleVerifyOTP}>
+              <Typography variant="body1" sx={{ mb: 2, textAlign: 'center' }}>
+                Enter the 6-digit code sent to {phoneNumber}
+              </Typography>
               <TextField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                label="OTP Code"
+                type="text"
+                value={otpCode}
+                onChange={(e) => setOtpCode(e.target.value)}
                 fullWidth
                 required
                 margin="normal"
-                autoComplete="email"
+                autoComplete="one-time-code"
                 disabled={loading}
                 sx={{ borderRadius: 2 }}
+                placeholder="123456"
+                inputProps={{ maxLength: 6 }}
               />
               {error && (
-                <Typography color="error" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
+                <Alert severity="error" sx={{ mt: 2, mb: 2 }}>
                   {error}
-                </Typography>
+                </Alert>
               )}
               {success && (
-                <Typography color="primary" sx={{ mt: 2, mb: 2, textAlign: 'center' }}>
+                <Alert severity="success" sx={{ mt: 2, mb: 2 }}>
                   {success}
-                </Typography>
+                </Alert>
               )}
               <Button
                 type="submit"
@@ -276,16 +328,16 @@ const AuthPage: React.FC = () => {
                 sx={{ mt: 3, borderRadius: 2, fontWeight: 600, fontSize: '1.1rem' }}
                 disabled={loading}
               >
-                {loading ? 'Sending...' : 'Send Reset Link'}
+                {loading ? 'Verifying...' : 'Verify OTP'}
               </Button>
               <Button
-                color="secondary"
+                variant="text"
                 fullWidth
                 sx={{ mt: 2, borderRadius: 2 }}
-                onClick={() => setTab('signin')}
+                onClick={resendOTP}
                 disabled={loading}
               >
-                {t('signIn', 'Sign In')}
+                Resend OTP
               </Button>
             </form>
           )}

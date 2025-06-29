@@ -14,7 +14,7 @@ export interface UserProfile {
   uid: string;
   name: string;
   gender: 'male' | 'female' | 'other';
-  email: string;
+  phoneNumber: string;
   profilePictureUrl?: string;
   birthDetails: BirthDetails;
   createdAt: string; // ISO date string

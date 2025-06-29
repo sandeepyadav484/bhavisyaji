@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { User } from 'firebase/auth';
-import { onAuthStateChange, getCurrentUser, signInWithEmail, signUpWithEmail, signOut as firebaseSignOut } from '../services/auth';
+import { onAuthStateChange, getCurrentUser, signInWithPhone, signUpWithPhone, signOut as firebaseSignOut } from '../services/auth';
 import { getUserProfile } from '../services/firestore/users';
 
 interface UserProfile {
@@ -17,8 +17,8 @@ interface UserContextType {
   setUser: (user: User | null) => void;
   profile: UserProfile | null;
   setProfile: (profile: UserProfile | null) => void;
-  signIn: (email: string, password: string) => Promise<User>;
-  signUp: (email: string, password: string) => Promise<User>;
+  signIn: (phoneNumber: string, password: string) => Promise<any>;
+  signUp: (phoneNumber: string, password: string) => Promise<any>;
   signOut: () => Promise<void>;
 }
 
@@ -43,16 +43,16 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return () => unsubscribe();
   }, []);
 
-  const signIn = async (email: string, password: string) => {
-    const user = await signInWithEmail(email, password);
-    setUser(user);
-    return user;
+  const signIn = async (phoneNumber: string, password: string) => {
+    const result = await signInWithPhone(phoneNumber, password);
+    return result;
   };
-  const signUp = async (email: string, password: string) => {
-    const user = await signUpWithEmail(email, password);
-    setUser(user);
-    return user;
+  
+  const signUp = async (phoneNumber: string, password: string) => {
+    const result = await signUpWithPhone(phoneNumber, password);
+    return result;
   };
+  
   const signOut = async () => {
     await firebaseSignOut();
     setUser(null);

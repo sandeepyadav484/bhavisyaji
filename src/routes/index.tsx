@@ -19,7 +19,7 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/auth-onboarding" element={<AuthOnboardingPage />} />
       <Route path="/" element={<MainLayout><Outlet /></MainLayout>}>
-        <Route index element={<AuthGuard requireProfile={true}><HomePage /></AuthGuard>} />
+        <Route index element={<AuthGuard><HomePage /></AuthGuard>} />
         <Route path="auth" element={<AuthPage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
         <Route path="personas" element={<PersonaDirectoryPage />} />

@@ -10,8 +10,8 @@ import { User } from 'firebase/auth';
 jest.mock('./config/firebase', () => {
   const mockAuth = {
     onAuthStateChanged: jest.fn(() => jest.fn()),
-    signInWithEmailAndPassword: jest.fn(),
-    createUserWithEmailAndPassword: jest.fn(),
+    signInWithPhoneNumber: jest.fn(),
+    createUserWithPhoneNumber: jest.fn(),
     signOut: jest.fn(),
     currentUser: null,
   };
@@ -36,8 +36,8 @@ jest.mock('./config/firebase', () => {
 jest.mock('./contexts/UserContext', () => {
   const mockUser: User = {
     uid: 'test-uid',
-    email: 'test@example.com',
-    emailVerified: true,
+    email: null,
+    emailVerified: false,
     isAnonymous: false,
     metadata: {},
     providerData: [],
@@ -49,9 +49,9 @@ jest.mock('./contexts/UserContext', () => {
     reload: jest.fn(),
     toJSON: jest.fn(),
     displayName: null,
-    phoneNumber: null,
+    phoneNumber: '+1234567890',
     photoURL: null,
-    providerId: 'password',
+    providerId: 'phone',
   };
 
   const UserProvider = ({ children }: { children: React.ReactNode }) => React.createElement('div', null, children);

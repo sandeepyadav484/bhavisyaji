@@ -67,7 +67,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <IconButton onClick={handleMenuOpen} color="inherit" sx={{ ml: 2 }}>
                 <Avatar 
                   src={profile?.profilePictureUrl || ''} 
-                  alt={profile?.name || user.email || 'Profile'} 
+                  alt={profile?.name || user.phoneNumber || 'Profile'} 
                   sx={{ 
                     bgcolor: '#FFF9DB', 
                     border: '2px solid #FFE066', 
@@ -83,8 +83,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               >
                 <Box px={2} py={1}>
-                  <Typography variant="subtitle1">{profile?.name || user.email}</Typography>
-                  <Typography variant="body2" color="text.secondary">{user.email}</Typography>
+                  <Typography variant="subtitle1">{profile?.name || user.phoneNumber}</Typography>
+                  <Typography variant="body2" color="text.secondary">{user.phoneNumber}</Typography>
                 </Box>
                 <MenuItem onClick={handleProfile}>Edit Profile</MenuItem>
                 <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>

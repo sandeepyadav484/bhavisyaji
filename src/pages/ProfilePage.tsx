@@ -117,7 +117,7 @@ const ProfilePage: React.FC = () => {
         uid: user.uid,
         name: personalInfo.name,
         gender: (personalInfo.gender || 'other') as 'male' | 'female' | 'other',
-        email: user.email || '',
+        phoneNumber: user.phoneNumber || '',
         profilePictureUrl: user.photoURL || '',
         birthDetails: {
           date: dateStr,

@@ -1,41 +1,66 @@
 import { 
   getAuth, 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail as firebaseSendPasswordResetEmail,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
-  AuthError
+  AuthError,
+  PhoneAuthProvider,
+  linkWithCredential,
+  updatePhoneNumber
 } from 'firebase/auth';
 import app from '../../config/firebase';
 
 const auth = getAuth(app);
 
-export const signUpWithEmail = async (email: string, password: string) => {
+// Initialize reCAPTCHA verifier
+let recaptchaVerifier: RecaptchaVerifier | null = null;
+
+export const initializeRecaptcha = (containerId: string) => {
+  if (!recaptchaVerifier) {
+    recaptchaVerifier = new RecaptchaVerifier(auth, containerId, {
+      'size': 'invisible',
+      'callback': () => {
+        console.log('reCAPTCHA solved');
+      }
+    });
+  }
+  return recaptchaVerifier;
+};
+
+export const signUpWithPhone = async (phoneNumber: string, password: string) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    return userCredential.user;
+    if (!recaptchaVerifier) {
+      throw new Error('reCAPTCHA not initialized. Please call initializeRecaptcha first.');
+    }
+    
+    const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+    return { confirmationResult, phoneNumber };
   } catch (error) {
     const authError = error as AuthError;
     throw new Error(authError.message);
   }
 };
 
-export const signInWithEmail = async (email: string, password: string) => {
+export const signInWithPhone = async (phoneNumber: string, password: string) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    return userCredential.user;
+    if (!recaptchaVerifier) {
+      throw new Error('reCAPTCHA not initialized. Please call initializeRecaptcha first.');
+    }
+    
+    const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+    return { confirmationResult, phoneNumber };
   } catch (error) {
     const authError = error as AuthError;
     throw new Error(authError.message);
   }
 };
 
-export const sendPasswordResetEmail = async (email: string) => {
+export const verifyPhoneCode = async (confirmationResult: any, code: string) => {
   try {
-    await firebaseSendPasswordResetEmail(auth, email);
-    return true;
+    const result = await confirmationResult.confirm(code);
+    return result.user;
   } catch (error) {
     const authError = error as AuthError;
     throw new Error(authError.message);
