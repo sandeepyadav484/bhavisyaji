@@ -72,13 +72,7 @@ module.exports = async (req, res) => {
 
       // Idempotency: check if this paymentId has already been processed
       const admin = require('firebase-admin');
-      if (!admin.apps.length) {
-        admin.initializeApp({
-          credential: admin.credential.cert(JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON)),
-        });
-      }
       const db = admin.firestore();
-      db.settings && db.settings({ databaseId: 'prod' });
       const txRef = db.collection('creditTransactions');
       const existing = await txRef.where('paymentId', '==', paymentId).get();
       if (!existing.empty) {
