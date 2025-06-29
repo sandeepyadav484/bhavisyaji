@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bhavishyaji.www.twa",
+      "sha256_cert_fingerprints": [
+        "13:6C:C9:0C:3B:9E:81:B3:A4:49:87:3C:E7:C2:FF:FB:77:20:30:99:5F:E7:1A:3E:76:E6:8C:BF:FC:EC:81:AA"
+      ]
+    }
+  }
+] 
