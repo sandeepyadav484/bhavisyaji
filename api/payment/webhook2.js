@@ -51,10 +51,16 @@ module.exports = async (req, res) => {
     }
 
     const { payload } = body;
+    // Log the full payload for debugging
+    console.warn('Webhook payload:', JSON.stringify(payload, null, 2));
 
-    // Handle payment.authorized event
-    if (payload && payload.payment && payload.payment.entity.status === 'authorized') {
-      const { notes } = payload.payment.entity;
+    // Try to handle multiple payment statuses
+    const paymentEntity = payload && payload.payment && payload.payment.entity;
+    const status = paymentEntity && paymentEntity.status;
+    const validStatuses = ['authorized', 'captured', 'paid', 'successful'];
+
+    if (paymentEntity && validStatuses.includes(status)) {
+      const { notes } = paymentEntity;
       const userId = notes.userId;
       const credits = parseInt(notes.credits);
 
@@ -65,15 +71,15 @@ module.exports = async (req, res) => {
 
       // Add credits to user's account
       await addCredits(userId, credits, 'purchase', {
-        paymentId: payload.payment.entity.id,
-        orderId: payload.payment.entity.order_id,
+        paymentId: paymentEntity.id,
+        orderId: paymentEntity.order_id,
       });
 
       console.log('Credits added successfully', { userId, credits });
       return res.status(200).json({ success: true });
     }
 
-    console.warn('Unhandled webhook payload or status', { payload });
+    console.warn('Unhandled webhook payload or status', JSON.stringify(payload, null, 2));
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Webhook error:', error);
