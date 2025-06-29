@@ -1,15 +1,15 @@
 {
-  "name": "Bhavisyaji",
-  "short_name": "Bhavisyaji",
+  "name": "Bhavishyaji",
+  "short_name": "Bhavishyaji",
   "description": "Free Online Astrology Predictions by Best Astrologer",
   "icons": [
     {
-      "src": "/logo192.png",
+      "src": "/logoapp.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/logo512.png",
+      "src": "/logoapp.png",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -18,6 +18,24 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#6C47FF",
-  "background_color": "#ffffff"
+  "theme_color": "#fffde3",
+  "background_color": "#ffffff",
+  "id": "/",
+  "launch_handler": {
+    "client_mode": "auto"
+  },
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["lifestyle", "productivity", "utilities"],
+  "dir": "ltr",
+  "iarc_rating_id": "eC1a2b3c4d5e6f7g8h9i0j",
+  "lang": "en",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope_extensions": []
 }
