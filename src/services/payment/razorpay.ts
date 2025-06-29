@@ -49,17 +49,43 @@ export const createOrder = async (pkg: CreditPackage, userId: string): Promise<s
   }
 };
 
-export const initiatePayment = async (pkg: CreditPackage, userId?: string): Promise<void> => {
+export const initiatePayment = async (pkg: CreditPackage, userId: string, userPhone?: string, userName?: string): Promise<void> => {
   try {
-    if (!pkg.paymentLink) {
-      throw new Error('Payment link not available for this package');
-    }
+    await loadRazorpay();
+    const orderId = await createOrder(pkg, userId);
 
-    // Open the payment link in a new window
-    window.open(pkg.paymentLink, '_blank');
-
-    // Note: Since we're using payment links, we don't need to handle the payment verification
-    // Razorpay will handle the webhook and notify our backend
+    const options = {
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID || '', // Set your Razorpay key here or via env
+      amount: pkg.price * 100,
+      currency: 'INR',
+      name: 'Bhavishyaji',
+      description: pkg.name,
+      order_id: orderId,
+      prefill: {
+        name: userName || '',
+        contact: userPhone || '',
+      },
+      notes: {
+        userId,
+        packageId: pkg.id,
+        credits: pkg.credits,
+      },
+      theme: {
+        color: '#F37254',
+      },
+      handler: function (response: any) {
+        // Optionally, you can verify payment here or just rely on webhook
+        // alert('Payment successful!');
+      },
+      modal: {
+        ondismiss: function () {
+          // Optionally handle modal close
+        },
+      },
+    };
+    // @ts-ignore
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   } catch (error) {
     console.error('Error initiating payment:', error);
     throw error;

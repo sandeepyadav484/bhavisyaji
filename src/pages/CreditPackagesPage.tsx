@@ -32,7 +32,7 @@ const CreditPackagesPage: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      await initiatePayment(pkg, userId);
+      await initiatePayment(pkg, userId || '', user?.phoneNumber || undefined, user?.displayName || undefined);
       // Don't close modal, let polling handle it
     } catch (err: any) {
       setError(err.message || 'Payment failed.');
