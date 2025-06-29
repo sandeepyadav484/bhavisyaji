@@ -8,6 +8,7 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
+db.settings({ databaseId: 'prod' });
 
 const CREDITS_COLLECTION = 'userCredits';
 const TRANSACTIONS_COLLECTION = 'creditTransactions';
