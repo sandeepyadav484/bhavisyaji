@@ -59,7 +59,7 @@ module.exports = async (req, res) => {
     const status = paymentEntity && paymentEntity.status;
     const validStatuses = ['authorized', 'captured', 'paid', 'successful'];
 
-    if (paymentEntity && validStatuses.includes(status)) {
+    if (paymentEntity && (status === 'captured' || status === 'paid')) {
       const { notes } = paymentEntity;
       const userId = notes.userId;
       const credits = parseInt(notes.credits);
