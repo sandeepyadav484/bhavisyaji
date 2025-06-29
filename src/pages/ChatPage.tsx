@@ -231,7 +231,7 @@ Remember to adjust your language complexity based on the user's communication st
   };
   const handlePay = async (pkg: CreditPackage) => {
     try {
-      await initiatePayment(pkg);
+      await initiatePayment(pkg, userId || '', user?.phoneNumber || undefined, user?.displayName || undefined);
       setShowTopUp(false);
     } catch (error: any) {
       setError(error.message || 'Payment failed. Please try again.');
