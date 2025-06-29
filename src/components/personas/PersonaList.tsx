@@ -35,7 +35,7 @@ const PersonaList: React.FC<PersonaListProps> = ({ personas, loading, error, onC
   return (
     <Grid container spacing={4} justifyContent="center">
       {personas.map((persona) => (
-        <Grid item xs={6} sm={6} md={4} lg={3} key={persona.id}>
+        <Grid item xs={12} sm={6} md={4} lg={3} key={persona.id}>
           <PersonaCard persona={persona} onConsult={onConsult} />
         </Grid>
       ))}

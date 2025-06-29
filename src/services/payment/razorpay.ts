@@ -18,7 +18,7 @@ export const loadRazorpay = (): Promise<void> => {
   });
 };
 
-export const createOrder = async (pkg: CreditPackage): Promise<string> => {
+export const createOrder = async (pkg: CreditPackage, userId: string): Promise<string> => {
   try {
     const response = await fetch('/api/create-order', {
       method: 'POST',
@@ -32,6 +32,7 @@ export const createOrder = async (pkg: CreditPackage): Promise<string> => {
         notes: {
           packageId: pkg.id,
           credits: pkg.credits,
+          userId,
         },
       }),
     });
@@ -48,7 +49,7 @@ export const createOrder = async (pkg: CreditPackage): Promise<string> => {
   }
 };
 
-export const initiatePayment = async (pkg: CreditPackage): Promise<void> => {
+export const initiatePayment = async (pkg: CreditPackage, userId?: string): Promise<void> => {
   try {
     if (!pkg.paymentLink) {
       throw new Error('Payment link not available for this package');
