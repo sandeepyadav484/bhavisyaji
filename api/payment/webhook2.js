@@ -1,5 +1,13 @@
 const crypto = require('crypto');
+const getRawBody = require('raw-body');
 const { addCredits } = require('../../bhavisyaji/src/services/firestore/credits');
+
+// Disable body parsing for this API route (Vercel/Next.js style)
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 // Verify Razorpay webhook signature
 function verifyWebhookSignature(body, signature, secret) {
@@ -16,7 +24,12 @@ module.exports = async (req, res) => {
   }
 
   try {
-    console.log('Webhook received:', JSON.stringify(req.body));
+    // Get the raw body for signature verification
+    const rawBody = await getRawBody(req);
+    const bodyString = rawBody.toString('utf8');
+    const body = JSON.parse(bodyString);
+
+    console.log('Webhook received:', bodyString);
     const razorpaySignature = req.headers['x-razorpay-signature'];
     const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
 
@@ -25,9 +38,9 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Missing signature or webhook secret' });
     }
 
-    // Verify webhook signature
+    // Verify webhook signature using the raw body string
     const isValid = verifyWebhookSignature(
-      JSON.stringify(req.body),
+      bodyString,
       razorpaySignature,
       webhookSecret
     );
@@ -37,7 +50,7 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Invalid signature' });
     }
 
-    const { payload } = req.body;
+    const { payload } = body;
 
     // Handle payment.authorized event
     if (payload && payload.payment && payload.payment.entity.status === 'authorized') {
