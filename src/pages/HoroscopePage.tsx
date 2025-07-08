@@ -54,7 +54,7 @@ const HoroscopePage: React.FC = () => {
           <PlanetaryInfluence planets={getPlanetaryPositions(mockBirthDate)} />
           <HoroscopeContent sections={horoscope.sections} />
           <div className="text-xs text-gray-400 mt-2">Generated: {new Date(horoscope.createdAt).toLocaleString()}</div>
-          <HoroscopeSharing shareUrl={shareUrl} text={`My ${tab} horoscope for ${horoscope.sunSign} on Bhavisyaji!`} />
+          <HoroscopeSharing shareUrl={shareUrl} text={`My ${tab} horoscope for ${horoscope.sunSign} on Bhavishyaji!`} />
         </div>
       )}
     </div>

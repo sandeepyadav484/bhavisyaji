@@ -17,7 +17,7 @@ const OfflinePage: React.FC = () => (
     <p style={{ fontSize: '1.2rem', color: '#444', maxWidth: 400 }}>
       It looks like you've lost your internet connection.<br />
       Please check your network and try again.<br />
-      Bhavisyaji will be here when you're back online!
+      Bhavishyaji will be here when you're back online!
     </p>
   </div>
 );

@@ -97,7 +97,7 @@ const HomePage: React.FC = () => {
         >
           <Box sx={{ flex: 1, textAlign: { xs: 'center', sm: 'left' } }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1, fontSize: { xs: '1.1rem', sm: '1.2rem' } }}>
-              Decode Your Destiny with <span style={{ color: '#e6b800' }}>Bhavisyaji</span>
+              Decode Your Destiny with <span style={{ color: '#e6b800' }}>Bhavishyaji</span>
             </Typography>
             <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '1.4rem', sm: '1.5rem' } }}>
               Chat With Astrologer
@@ -293,7 +293,7 @@ const HomePage: React.FC = () => {
             WHY ASTROLOGY?
           </Typography>
           <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-            At Bhavisyaji, we see astrology as a timeless roadmap to your inner potential and life's turning points. Rooted in centuries-old techniques, it's a predictive science that uses cosmic patterns—primarily the nine "Navagraha" bodies—to illuminate everything from your personal strengths to upcoming challenges. Even as the world changes, astrology's ability to connect us with universal rhythms continues to inspire deep belief and practical guidance.
+            At Bhavishyaji, we see astrology as a timeless roadmap to your inner potential and life's turning points. Rooted in centuries-old techniques, it's a predictive science that uses cosmic patterns—primarily the nine "Navagraha" bodies—to illuminate everything from your personal strengths to upcoming challenges. Even as the world changes, astrology's ability to connect us with universal rhythms continues to inspire deep belief and practical guidance.
           </Typography>
           
           <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
@@ -357,7 +357,7 @@ const HomePage: React.FC = () => {
           </Grid>
         </Paper>
 
-        {/* Why Choose Bhavisyaji */}
+        {/* Why Choose Bhavishyaji */}
         <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
           <Typography variant="h4" sx={{ fontWeight: 700, color: '#222', mb: 3, textAlign: 'center' }}>
             WHY CHOOSE BHAVISYAJI?

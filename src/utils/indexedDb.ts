@@ -1,6 +1,6 @@
 import { openDB, DBSchema } from 'idb';
 
-interface BhavisyajiDB extends DBSchema {
+interface BhavishyajiDB extends DBSchema {
   queuedRequests: {
     key: number;
     value: {
@@ -14,11 +14,11 @@ interface BhavisyajiDB extends DBSchema {
   };
 }
 
-const DB_NAME = 'bhavisyaji-db';
+const DB_NAME = 'bhavishyaji-db';
 const DB_VERSION = 1;
 
 export async function getDb() {
-  return openDB<BhavisyajiDB>(DB_NAME, DB_VERSION, {
+  return openDB<BhavishyajiDB>(DB_NAME, DB_VERSION, {
     upgrade(db) {
       if (!db.objectStoreNames.contains('queuedRequests')) {
         const store = db.createObjectStore('queuedRequests', { keyPath: 'id', autoIncrement: true });
@@ -28,7 +28,7 @@ export async function getDb() {
   });
 }
 
-export async function queueRequest(request: Omit<BhavisyajiDB['queuedRequests']['value'], 'id'>) {
+export async function queueRequest(request: Omit<BhavishyajiDB['queuedRequests']['value'], 'id'>) {
   const db = await getDb();
   await db.add('queuedRequests', { ...request, id: Date.now() });
 }

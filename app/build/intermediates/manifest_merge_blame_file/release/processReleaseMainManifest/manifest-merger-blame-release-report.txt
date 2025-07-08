@@ -1,0 +1,507 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3    Copyright 2019 Google Inc. All Rights Reserved.
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9         http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<!--
+18 The "package" attribute is rewritten by the Gradle build with the value of applicationId.
+19     It is still required here, as it is used to derive paths, for instance when referring
+20     to an Activity by ".MyActivity" instead of the full name. If more Activities are added to the
+21     application, the package attribute will need to reflect the correct path in order to use
+22     the abbreviated format.
+23-->
+24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+25    package="com.bhavishyaji.www.twa"
+26    android:versionCode="1"
+27    android:versionName="1" >
+28
+29    <uses-sdk
+30        android:minSdkVersion="21"
+31        android:targetSdkVersion="35" />
+32
+33    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+33-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:26:9-80
+33-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:26:26-78
+34
+35    <queries>
+35-->[com.google.androidbrowserhelper:androidbrowserhelper:2.6.2] /Users/sandeep/.gradle/caches/8.11.1/transforms/5053e02be90783e54992393be394bb70/transformed/androidbrowserhelper-2.6.2/AndroidManifest.xml:22:5-30:15
+36        <intent>
+36-->[com.google.androidbrowserhelper:androidbrowserhelper:2.6.2] /Users/sandeep/.gradle/caches/8.11.1/transforms/5053e02be90783e54992393be394bb70/transformed/androidbrowserhelper-2.6.2/AndroidManifest.xml:23:9-29:18
+37            <action android:name="android.intent.action.VIEW" />
+37-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:143:17-68
+37-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:143:25-66
+38
+39            <category android:name="android.intent.category.BROWSABLE" />
+39-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:145:17-77
+39-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:145:27-75
+40
+41            <data android:scheme="https" />
+41-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:146:17-149:19
+41-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:146:23-45
+42        </intent>
+43        <intent>
+43-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:13:9-15:18
+44            <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
+44-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:14:13-91
+44-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:14:21-88
+45        </intent>
+46        <intent>
+46-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:16:9-18:18
+47            <action android:name="com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND" />
+47-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:17:13-116
+47-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:17:21-113
+48        </intent>
+49    </queries>
+50
+51    <uses-permission android:name="com.android.vending.BILLING" />
+51-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:10:5-67
+51-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:10:22-64
+52
+53    <permission
+53-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+54        android:name="com.bhavishyaji.www.twa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+54-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+55        android:protectionLevel="signature" />
+55-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+56
+57    <uses-permission android:name="com.bhavishyaji.www.twa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+57-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+57-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+58    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+59    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+59-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:24:5-79
+59-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:24:22-76
+60    <uses-permission android:name="android.permission.INTERNET" />
+60-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:25:5-67
+60-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:25:22-64
+61
+62    <application
+62-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:35:5-219:19
+63        android:name="com.bhavishyaji.www.twa.Application"
+63-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:36:9-35
+64        android:allowBackup="true"
+64-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:37:9-35
+65        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+65-->[androidx.core:core:1.13.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/a5429f7b20c607b890f08b5283ad4ec0/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+66        android:extractNativeLibs="true"
+67        android:icon="@mipmap/ic_launcher"
+67-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:38:9-43
+68        android:label="@string/appName"
+68-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:39:9-40
+69        android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
+69-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:41:9-105
+70        android:supportsRtl="true"
+70-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:43:9-35
+71        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+71-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:44:9-68
+72        <meta-data
+72-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:46:9-48:58
+73            android:name="asset_statements"
+73-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:47:13-44
+74            android:resource="@string/assetStatements" />
+74-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:48:13-55
+75        <meta-data
+75-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:51:13-53:58
+76            android:name="web_manifest_url"
+76-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:52:17-48
+77            android:value="@string/webManifestUrl" />
+77-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:53:17-55
+78        <meta-data
+78-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:56:9-58:52
+79            android:name="twa_generator"
+79-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:57:13-41
+80            android:value="@string/generatorApp" />
+80-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:58:13-49
+81
+82        <activity android:name="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity" >
+82-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:65:13-69:24
+82-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:65:23-104
+83            <meta-data
+83-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:66:13-68:53
+84                android:name="android.support.customtabs.trusted.MANAGE_SPACE_URL"
+84-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:67:17-83
+85                android:value="@string/launchUrl" />
+85-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:68:17-50
+86        </activity>
+87        <activity
+87-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:72:9-155:20
+88            android:name="com.bhavishyaji.www.twa.LauncherActivity"
+88-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:72:19-50
+89            android:alwaysRetainTaskState="true"
+89-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:73:13-49
+90            android:exported="true"
+90-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:75:13-36
+91            android:label="@string/launcherName" >
+91-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:74:13-49
+92            <meta-data
+92-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:76:13-77:53
+93                android:name="android.support.customtabs.trusted.DEFAULT_URL"
+93-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:76:24-85
+94                android:value="@string/launchUrl" />
+94-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:77:17-50
+95            <meta-data
+95-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:79:13-81:58
+96                android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+96-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:80:17-83
+97                android:resource="@color/colorPrimary" />
+97-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:81:17-55
+98            <meta-data
+98-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:84:17-86:71
+99                android:name="android.support.customtabs.trusted.LAUNCH_HANDLER_CLIENT_MODE"
+99-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:85:21-97
+100                android:value="@string/launchHandlerClientMode" />
+100-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:86:21-68
+101            <meta-data
+101-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:89:13-91:62
+102                android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR_DARK"
+102-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:90:17-88
+103                android:resource="@color/colorPrimaryDark" />
+103-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:91:17-59
+104            <meta-data
+104-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:93:13-95:61
+105                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR"
+105-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:94:17-87
+106                android:resource="@color/navigationColor" />
+106-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:95:17-58
+107            <meta-data
+107-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:97:13-99:65
+108                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR_DARK"
+108-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:98:17-92
+109                android:resource="@color/navigationColorDark" />
+109-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:99:17-62
+110            <meta-data
+110-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:101:13-103:68
+111                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR"
+111-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:102:17-84
+112                android:resource="@color/navigationDividerColor" />
+112-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:103:17-65
+113            <meta-data
+113-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:105:13-107:72
+114                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR_DARK"
+114-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:106:17-89
+115                android:resource="@color/navigationDividerColorDark" />
+115-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:107:17-69
+116            <meta-data
+116-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:109:13-110:54
+117                android:name="android.support.customtabs.trusted.SPLASH_IMAGE_DRAWABLE"
+117-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:109:24-95
+118                android:resource="@drawable/splash" />
+118-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:110:17-52
+119            <meta-data
+119-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:112:13-113:60
+120                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_BACKGROUND_COLOR"
+120-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:112:24-104
+121                android:resource="@color/backgroundColor" />
+121-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:113:17-58
+122            <meta-data
+122-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:115:13-116:71
+123                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_FADE_OUT_DURATION"
+123-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:115:24-105
+124                android:value="@integer/splashScreenFadeOutDuration" />
+124-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:116:17-69
+125            <meta-data
+125-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:118:13-119:60
+126                android:name="android.support.customtabs.trusted.FILE_PROVIDER_AUTHORITY"
+126-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:118:24-97
+127                android:value="@string/providerAuthority" />
+127-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:119:17-58
+128            <meta-data
+128-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:121:13-97
+129                android:name="android.app.shortcuts"
+129-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:121:24-60
+130                android:resource="@xml/shortcuts" />
+130-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:121:61-94
+131            <meta-data
+131-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:123:13-124:56
+132                android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
+132-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:123:24-91
+133                android:value="@string/fallbackType" />
+133-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:124:17-53
+134            <meta-data
+134-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:130:13-131:54
+135                android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
+135-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:130:24-92
+136                android:value="@string/orientation" />
+136-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:131:17-52
+137
+138            <intent-filter>
+138-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:137:13-140:29
+139                <action android:name="android.intent.action.MAIN" />
+139-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:138:17-69
+139-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:138:25-66
+140
+141                <category android:name="android.intent.category.LAUNCHER" />
+141-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:139:17-77
+141-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:139:27-74
+142            </intent-filter>
+143            <intent-filter android:autoVerify="true" >
+143-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:142:13-150:29
+143-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:142:28-53
+144                <action android:name="android.intent.action.VIEW" />
+144-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:143:17-68
+144-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:143:25-66
+145
+146                <category android:name="android.intent.category.DEFAULT" />
+146-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:144:17-76
+146-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:144:27-73
+147                <category android:name="android.intent.category.BROWSABLE" />
+147-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:145:17-77
+147-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:145:27-75
+148
+149                <data
+149-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:146:17-149:19
+150                    android:host="@string/hostName"
+150-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:147:21-52
+151                    android:scheme="https" />
+151-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:146:23-45
+152            </intent-filter>
+153        </activity>
+154        <activity android:name="com.google.androidbrowserhelper.trusted.FocusActivity" />
+154-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:157:9-90
+154-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:157:19-87
+155        <activity
+155-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:159:9-160:62
+156            android:name="com.google.androidbrowserhelper.trusted.WebViewFallbackActivity"
+156-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:159:19-97
+157            android:configChanges="orientation|screenSize" />
+157-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:160:13-59
+158
+159        <provider
+159-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:162:9-170:20
+160            android:name="androidx.core.content.FileProvider"
+160-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:163:13-62
+161            android:authorities="@string/providerAuthority"
+161-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:164:13-60
+162            android:exported="false"
+162-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:166:13-37
+163            android:grantUriPermissions="true" >
+163-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:165:13-47
+164            <meta-data
+164-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:167:13-169:53
+165                android:name="android.support.FILE_PROVIDER_PATHS"
+165-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:168:17-67
+166                android:resource="@xml/filepaths" />
+166-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:169:17-50
+167        </provider>
+168
+169        <service
+169-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:172:9-187:19
+170            android:name="com.bhavishyaji.www.twa.DelegationService"
+170-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:173:13-46
+171            android:enabled="@bool/enableNotification"
+171-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:174:13-55
+172            android:exported="@bool/enableNotification" >
+172-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:175:13-56
+173            <meta-data
+173-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:178:17-180:73
+174                android:name="android.support.customtabs.trusted.SMALL_ICON"
+174-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:179:21-81
+175                android:resource="@drawable/ic_notification_icon" />
+175-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:180:21-70
+176
+177            <intent-filter>
+177-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:183:13-186:29
+178                <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
+178-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:184:17-105
+178-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:184:25-103
+179
+180                <category android:name="android.intent.category.DEFAULT" />
+180-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:144:17-76
+180-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:144:27-73
+181            </intent-filter>
+182        </service>
+183
+184        <activity android:name="com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity" />
+184-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:190:13-118
+184-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:190:23-115
+185        <activity
+185-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:195:9-208:20
+186            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentActivity"
+186-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:196:13-96
+187            android:configChanges="keyboardHidden|keyboard|orientation|screenLayout|screenSize"
+187-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:198:13-96
+188            android:exported="true"
+188-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:199:13-36
+189            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+189-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:197:13-72
+190            <intent-filter>
+190-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:201:13-203:29
+191                <action android:name="org.chromium.intent.action.PAY" />
+191-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:202:17-73
+191-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:202:25-70
+192            </intent-filter>
+193
+194            <meta-data
+194-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:205:13-207:67
+195                android:name="org.chromium.default_payment_method_name"
+195-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:206:17-72
+196                android:value="https://play.google.com/billing" />
+196-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:207:17-64
+197        </activity>
+198
+199        <!-- This service checks who calls it at runtime. -->
+200        <service
+200-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:211:9-217:19
+201            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentService"
+201-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:212:13-95
+202            android:exported="true" >
+202-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:213:13-36
+203            <intent-filter>
+203-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:214:13-216:29
+204                <action android:name="org.chromium.intent.action.IS_READY_TO_PAY" />
+204-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:215:17-85
+204-->/Users/sandeep/Documents/New1/bhavisyaji/app/src/main/AndroidManifest.xml:215:25-82
+205            </intent-filter>
+206        </service>
+207
+208        <meta-data
+208-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:22:9-24:37
+209            android:name="com.google.android.play.billingclient.version"
+209-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:23:13-73
+210            android:value="7.1.1" />
+210-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:24:13-34
+211
+212        <activity
+212-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:26:9-30:75
+213            android:name="com.android.billingclient.api.ProxyBillingActivity"
+213-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:27:13-78
+214            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+214-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:28:13-96
+215            android:exported="false"
+215-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:29:13-37
+216            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+216-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:30:13-72
+217        <activity
+217-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:31:9-35:75
+218            android:name="com.android.billingclient.api.ProxyBillingActivityV2"
+218-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:32:13-80
+219            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+219-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:33:13-96
+220            android:exported="false"
+220-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:34:13-37
+221            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+221-->[com.android.billingclient:billing:7.1.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/1dcabcea90c9508775a51aeea5d7fca7/transformed/billing-7.1.1/AndroidManifest.xml:35:13-72
+222        <activity
+222-->[com.google.android.gms:play-services-base:18.5.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/57bacb9ef58048c0e6f8321d8067096b/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+223            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+223-->[com.google.android.gms:play-services-base:18.5.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/57bacb9ef58048c0e6f8321d8067096b/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+224            android:exported="false"
+224-->[com.google.android.gms:play-services-base:18.5.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/57bacb9ef58048c0e6f8321d8067096b/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+225            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+225-->[com.google.android.gms:play-services-base:18.5.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/57bacb9ef58048c0e6f8321d8067096b/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+226
+227        <meta-data
+227-->[com.google.android.gms:play-services-basement:18.4.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/af1250092db6525f6762c9b32f91bede/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+228            android:name="com.google.android.gms.version"
+228-->[com.google.android.gms:play-services-basement:18.4.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/af1250092db6525f6762c9b32f91bede/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+229            android:value="@integer/google_play_services_version" />
+229-->[com.google.android.gms:play-services-basement:18.4.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/af1250092db6525f6762c9b32f91bede/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+230
+231        <provider
+231-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+232            android:name="androidx.startup.InitializationProvider"
+232-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+233            android:authorities="com.bhavishyaji.www.twa.androidx-startup"
+233-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+234            android:exported="false" >
+234-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+235            <meta-data
+235-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+236                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+236-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+237                android:value="androidx.startup" />
+237-->[androidx.emoji2:emoji2:1.3.0] /Users/sandeep/.gradle/caches/8.11.1/transforms/5cb7738f5242d8c4e38c8ffa2b265b31/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+238            <meta-data
+238-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/sandeep/.gradle/caches/8.11.1/transforms/4bc52031417e9743197e36b704fe409f/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+239                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+239-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/sandeep/.gradle/caches/8.11.1/transforms/4bc52031417e9743197e36b704fe409f/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+240                android:value="androidx.startup" />
+240-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/sandeep/.gradle/caches/8.11.1/transforms/4bc52031417e9743197e36b704fe409f/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+241            <meta-data
+241-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+242                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+242-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+243                android:value="androidx.startup" />
+243-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+244        </provider>
+245
+246        <service
+246-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+247            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+247-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+248            android:exported="false" >
+248-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+249            <meta-data
+249-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+250                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+250-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+251                android:value="cct" />
+251-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/85bc3f8cc97bd85b10d760e1ca7886a3/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+252        </service>
+253        <service
+253-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+254            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+254-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+255            android:exported="false"
+255-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+256            android:permission="android.permission.BIND_JOB_SERVICE" >
+256-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+257        </service>
+258
+259        <receiver
+259-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+260            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+260-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+261            android:exported="false" />
+261-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/sandeep/.gradle/caches/8.11.1/transforms/390580f802b798735a90189ae7e85163/transformed/transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+262        <receiver
+262-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+263            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+263-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+264            android:directBootAware="false"
+264-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+265            android:enabled="true"
+265-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+266            android:exported="true"
+266-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+267            android:permission="android.permission.DUMP" >
+267-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+268            <intent-filter>
+268-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+269                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+269-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+269-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+270            </intent-filter>
+271            <intent-filter>
+271-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+272                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+272-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+272-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+273            </intent-filter>
+274            <intent-filter>
+274-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+275                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+275-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+275-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+276            </intent-filter>
+277            <intent-filter>
+277-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+278                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+278-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+278-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sandeep/.gradle/caches/8.11.1/transforms/bb4a0d32d1b17a1dcea0cf71d2bde5e0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+279            </intent-filter>
+280        </receiver>
+281    </application>
+282
+283</manifest>

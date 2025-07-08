@@ -9,7 +9,7 @@ const PrivacyPolicyPage: React.FC = () => (
       </Typography>
       <Box sx={{ mt: 3 }}>
         <Typography variant="body1" paragraph>
-          Welcome to Bhavisyaji. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use our website and services.
+          Welcome to Bhavishyaji. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use our website and services.
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>1. Information We Collect</Typography>
         <Typography variant="body1" paragraph>
@@ -17,7 +17,7 @@ const PrivacyPolicyPage: React.FC = () => (
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>2. Use of Information</Typography>
         <Typography variant="body1" paragraph>
-          We use your information to create your profile, provide personalized astrology services, improve our offerings, and communicate with you. Your data may also be used for research, analytics, and to enhance your experience on Bhavisyaji.
+          We use your information to create your profile, provide personalized astrology services, improve our offerings, and communicate with you. Your data may also be used for research, analytics, and to enhance your experience on Bhavishyaji.
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>3. Data Security</Typography>
         <Typography variant="body1" paragraph>
@@ -33,7 +33,7 @@ const PrivacyPolicyPage: React.FC = () => (
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>6. Children’s Privacy</Typography>
         <Typography variant="body1" paragraph>
-          Bhavisyaji is intended for users above 18 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us for prompt removal.
+          Bhavishyaji is intended for users above 18 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us for prompt removal.
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>7. Your Choices & Rights</Typography>
         <Typography variant="body1" paragraph>
@@ -45,7 +45,7 @@ const PrivacyPolicyPage: React.FC = () => (
         </Typography>
         <Typography variant="h6" sx={{ mt: 3 }}>9. Contact Us</Typography>
         <Typography variant="body1" paragraph>
-          If you have any questions or concerns about this Privacy Policy or your data, please contact us at <a href="mailto:support@bhavisyaji.com">support@bhavisyaji.com</a>.
+          If you have any questions or concerns about this Privacy Policy or your data, please contact us at <a href="mailto:support@bhavishyaji.com">support@bhavishyaji.com</a>.
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 4 }}>
           Effective Date: {new Date().toLocaleDateString()}

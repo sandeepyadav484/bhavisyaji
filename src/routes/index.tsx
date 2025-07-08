@@ -14,6 +14,7 @@ import HoroscopePage from '../pages/HoroscopePage';
 import AuthOnboardingPage from '../pages/AuthOnboardingPage';
 import { ChatPage } from '../pages/ChatPage';
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
+import DeleteAccountPage from '../pages/DeleteAccountPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -30,6 +31,7 @@ const AppRoutes: React.FC = () => {
         <Route path="horoscope" element={<HoroscopePage />} />
         <Route path="chat/:personaId" element={<AuthGuard><ChatPage /></AuthGuard>} />
         <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="delete-account" element={<AuthGuard><DeleteAccountPage /></AuthGuard>} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
