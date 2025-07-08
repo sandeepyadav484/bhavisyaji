@@ -88,6 +88,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </Box>
                 <MenuItem onClick={handleProfile}>Edit Profile</MenuItem>
                 <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
+                <MenuItem component={RouterLink} to="/privacy-policy" onClick={handleMenuClose}>Privacy Policy</MenuItem>
               </Menu>
             </>
           ) : (

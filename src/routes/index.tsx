@@ -13,6 +13,7 @@ import PersonaDetailPage from '../pages/PersonaDetailPage';
 import HoroscopePage from '../pages/HoroscopePage';
 import AuthOnboardingPage from '../pages/AuthOnboardingPage';
 import { ChatPage } from '../pages/ChatPage';
+import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const AppRoutes: React.FC = () => {
         <Route path="consultation" element={<AuthGuard><ConsultationPage /></AuthGuard>} />
         <Route path="horoscope" element={<HoroscopePage />} />
         <Route path="chat/:personaId" element={<AuthGuard><ChatPage /></AuthGuard>} />
+        <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
